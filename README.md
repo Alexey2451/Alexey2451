@@ -17,8 +17,8 @@
 ## 🌎 Связаться со мной
 
 - 📧 Email: alexeygit@eml.cc
-- 🌐 LinkedIn: [Мой профиль](#)  
-- 🎨 Behance: [Мои работы](#)  
+- 🌐 LinkedIn: [Мой профиль](https://github.com/Alexey2451)
+- 🎨 Behance: [Мои работы](https://github.com/Alexey2451?tab=repositories)  
 
 ---
 
