@@ -8,7 +8,7 @@
 
     <linearGradient id="g-scan" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#00e5ff" stop-opacity="0"/>
-      <stop offset="0.5" stop-color="#00e5ff" stop-opacity="0.18"/>
+      <stop offset="0.5" stop-color="#00e5ff" stop-opacity="0.16"/>
       <stop offset="1" stop-color="#00e5ff" stop-opacity="0"/>
     </linearGradient>
 
@@ -61,7 +61,7 @@
 
       .scan {
         fill: url(#g-scan);
-        opacity: .8;
+        opacity: .45;
         transform: translateY(-160px);
         animation: scan 3.2s linear infinite;
       }
@@ -72,27 +72,45 @@
         fill: #eaf6ff;
         filter: url(#f-glow);
       }
-
       .subtitle {
         font: 600 22px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
         fill: #b9d7ff;
         opacity: .95;
       }
-
       .quote {
         font: 500 18px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
         fill: #9ad7ff;
         opacity: .95;
       }
 
-      .neonLine {
-        stroke: url(#g-neon);
-        stroke-width: 3;
+      /* Snow sticks */
+      .snow {
+        stroke: #00e5ff;
+        stroke-width: 2;
         stroke-linecap: round;
+        opacity: .09;
         filter: url(#f-glow);
-        stroke-dasharray: 120 520;
-        animation: dash 2.4s ease-in-out infinite;
       }
+      .snowThin {
+        stroke: #9ad7ff;
+        stroke-width: 1.4;
+        stroke-linecap: round;
+        opacity: .07;
+        filter: url(#f-glow);
+      }
+
+      /* Each group has its own speed and drift */
+      .fall1 { animation: fall 6.5s linear infinite, drift1 3.8s ease-in-out infinite; }
+      .fall2 { animation: fall 8.2s linear infinite, drift2 4.6s ease-in-out infinite; }
+      .fall3 { animation: fall 10.0s linear infinite, drift1 5.2s ease-in-out infinite; }
+      .fall4 { animation: fall 7.3s linear infinite, drift2 4.0s ease-in-out infinite; }
+      .fall5 { animation: fall 9.1s linear infinite, drift1 4.4s ease-in-out infinite; }
+
+      .tw1 { animation-delay: -1.2s; }
+      .tw2 { animation-delay: -2.7s; }
+      .tw3 { animation-delay: -4.1s; }
+      .tw4 { animation-delay: -5.6s; }
+      .tw5 { animation-delay: -3.3s; }
 
       .cursor {
         fill: #00e5ff;
@@ -101,20 +119,30 @@
       }
 
       .flicker { animation: flicker 4.5s infinite; }
-
       .typeMask { animation: type 2.6s steps(36,end) 0.35s forwards; }
 
       @keyframes scan {
         0%   { transform: translateY(-160px); opacity: 0; }
-        10%  { opacity: .85; }
-        90%  { opacity: .85; }
+        10%  { opacity: .45; }
+        90%  { opacity: .45; }
         100% { transform: translateY(600px); opacity: 0; }
       }
 
-      @keyframes dash {
-        0%   { stroke-dashoffset: 0; }
-        50%  { stroke-dashoffset: -220; }
-        100% { stroke-dashoffset: -520; }
+      @keyframes fall {
+        0%   { transform: translateY(-120px); opacity: 0; }
+        10%  { opacity: .09; }
+        90%  { opacity: .09; }
+        100% { transform: translateY(520px); opacity: 0; }
+      }
+
+      @keyframes drift1 {
+        0%,100% { transform: translateX(0px); }
+        50%     { transform: translateX(10px); }
+      }
+
+      @keyframes drift2 {
+        0%,100% { transform: translateX(0px); }
+        50%     { transform: translateX(-12px); }
       }
 
       @keyframes blink {
@@ -141,6 +169,7 @@
 
   <rect class="bg" x="0" y="0" width="1200" height="360" rx="22"/>
 
+  <!-- Grid -->
   <g class="grid">
     <g>
       <line x1="80"  y1="40" x2="80"  y2="320"/>
@@ -169,26 +198,89 @@
 
   <rect x="0" y="0" width="1200" height="360" rx="22" filter="url(#f-noise)"/>
 
+  <!-- Snow sticks layer (behind frame/text) -->
+  <g>
+    <!-- group A -->
+    <g class="fall1 tw1">
+      <line class="snow" x1="140" y1="10" x2="140" y2="26"/>
+      <line class="snowThin" x1="210" y1="40" x2="210" y2="54"/>
+      <line class="snow" x1="320" y1="80" x2="320" y2="96"/>
+      <line class="snowThin" x1="460" y1="20" x2="460" y2="32"/>
+      <line class="snow" x1="620" y1="60" x2="620" y2="78"/>
+      <line class="snowThin" x1="760" y1="15" x2="760" y2="27"/>
+      <line class="snow" x1="980" y1="75" x2="980" y2="93"/>
+      <line class="snowThin" x1="1100" y1="35" x2="1100" y2="47"/>
+    </g>
+
+    <!-- group B -->
+    <g class="fall2 tw2">
+      <line class="snowThin" x1="90" y1="30" x2="90" y2="42"/>
+      <line class="snow" x1="260" y1="10" x2="260" y2="28"/>
+      <line class="snowThin" x1="390" y1="70" x2="390" y2="84"/>
+      <line class="snow" x1="540" y1="25" x2="540" y2="43"/>
+      <line class="snowThin" x1="690" y1="85" x2="690" y2="97"/>
+      <line class="snow" x1="840" y1="40" x2="840" y2="58"/>
+      <line class="snowThin" x1="1010" y1="15" x2="1010" y2="29"/>
+      <line class="snow" x1="1160" y1="65" x2="1160" y2="83"/>
+    </g>
+
+    <!-- group C -->
+    <g class="fall3 tw3">
+      <line class="snow" x1="180" y1="95" x2="180" y2="113"/>
+      <line class="snowThin" x1="300" y1="45" x2="300" y2="57"/>
+      <line class="snow" x1="430" y1="110" x2="430" y2="128"/>
+      <line class="snowThin" x1="580" y1="30" x2="580" y2="42"/>
+      <line class="snow" x1="720" y1="120" x2="720" y2="138"/>
+      <line class="snowThin" x1="900" y1="55" x2="900" y2="67"/>
+      <line class="snow" x1="1060" y1="105" x2="1060" y2="123"/>
+    </g>
+
+    <!-- group D -->
+    <g class="fall4 tw4">
+      <line class="snowThin" x1="120" y1="130" x2="120" y2="142"/>
+      <line class="snow" x1="240" y1="160" x2="240" y2="178"/>
+      <line class="snowThin" x1="360" y1="140" x2="360" y2="152"/>
+      <line class="snow" x1="520" y1="150" x2="520" y2="168"/>
+      <line class="snowThin" x1="660" y1="170" x2="660" y2="182"/>
+      <line class="snow" x1="820" y1="145" x2="820" y2="163"/>
+      <line class="snowThin" x1="960" y1="155" x2="960" y2="167"/>
+      <line class="snow" x1="1120" y1="135" x2="1120" y2="153"/>
+    </g>
+
+    <!-- group E -->
+    <g class="fall5 tw5">
+      <line class="snow" x1="70" y1="185" x2="70" y2="203"/>
+      <line class="snowThin" x1="210" y1="200" x2="210" y2="212"/>
+      <line class="snow" x1="340" y1="190" x2="340" y2="208"/>
+      <line class="snowThin" x1="470" y1="215" x2="470" y2="227"/>
+      <line class="snow" x1="610" y1="205" x2="610" y2="223"/>
+      <line class="snowThin" x1="760" y1="195" x2="760" y2="207"/>
+      <line class="snow" x1="910" y1="220" x2="910" y2="238"/>
+      <line class="snowThin" x1="1040" y1="205" x2="1040" y2="217"/>
+    </g>
+  </g>
+
+  <!-- Frame -->
   <rect x="26" y="24" width="1148" height="312" rx="18" class="frameGlow"/>
   <rect x="26" y="24" width="1148" height="312" rx="18" class="frame"/>
 
+  <!-- Scanline -->
   <rect x="26" y="24" width="1148" height="140" rx="18" class="scan"/>
 
-  <path d="M80 120 C 240 70, 420 190, 610 120 S 980 70, 1120 120" class="neonLine" opacity=".95"/>
-
+  <!-- Text -->
   <g class="flicker">
     <text x="90" y="120" class="title">Алексей</text>
     <text x="320" y="120" class="title" fill="url(#g-neon)">Frontend Developer</text>
     <text x="90" y="155" class="subtitle">React • Dart • Node.js • UI/UX • Animations</text>
   </g>
 
+  <!-- Typewriter quote -->
   <g mask="url(#m-type)">
     <text x="90" y="210" class="quote">“Код — это искусство, а разработка — это магия.”</text>
   </g>
-
   <rect x="1080" y="193" width="10" height="24" rx="2" class="cursor"/>
 
-  <!-- Small “status” chips (fixed spacing) -->
+  <!-- Chips -->
   <g>
     <rect x="90" y="270" width="260" height="34" rx="17"
           fill="#071a3a" stroke="#00e5ff" stroke-opacity=".35"/>
