@@ -12,7 +12,10 @@
 - **Backend**: NodeJS  
 - **Другое**: Анимации, UI/UX дизайн, адаптивная верстка  
 
-![Статистика](https://github-readme-stats.vercel.app/api?username=Alexey2451&show_icons=true&theme=radical)
+<p align="center">
+  <img src="./assets/neon.svg" width="100%" alt="Neon profile banner" />
+</p>
+
 
 ## 🌎 Связаться со мной
 
