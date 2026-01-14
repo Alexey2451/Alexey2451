@@ -207,11 +207,21 @@
   <rect x="1080" y="193" width="10" height="24" rx="2" class="cursor"/>
 
   <!-- Small “status” chips (moved down) -->
+    <!-- Small “status” chips (fixed spacing) -->
   <g>
-    <rect x="90" y="270" width="250" height="34" rx="17" fill="#071a3a" stroke="#00e5ff" stroke-opacity=".35"/>
-    <text x="110" y="293" class="quote" font-size="14" fill="#bfe9ff">available for projects</text>
+    <!-- chip 1 -->
+    <rect x="90" y="270" width="260" height="34" rx="17"
+          fill="#071a3a" stroke="#00e5ff" stroke-opacity=".35"/>
+    <text x="110" y="293" class="quote" font-size="14" fill="#bfe9ff">
+      available for projects
+    </text>
 
-    <rect x="350" y="270" width="250" height="34" rx="17" fill="#071a3a" stroke="#2f6bff" stroke-opacity=".35"/>
-    <text x="352" y="293" class="quote" font-size="14" fill="#cfe2ff">building cool UI</text>
+    <!-- chip 2 -->
+    <rect x="370" y="270" width="210" height="34" rx="17"
+          fill="#071a3a" stroke="#2f6bff" stroke-opacity=".35"/>
+    <text x="392" y="293" class="quote" font-size="14" fill="#cfe2ff">
+      building cool UI
+    </text>
   </g>
+>
 </svg>
