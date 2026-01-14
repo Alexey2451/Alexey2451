@@ -13,7 +13,7 @@
 - **Другое**: Анимации, UI/UX дизайн, адаптивная верстка  
 
 <p align="center">
-  <img src="./assets/neon.svg" width="100%" alt="Neon profile banner" />
+  <img src="./neon.svg" width="100%" alt="Neon profile banner" />
 </p>
 
 
