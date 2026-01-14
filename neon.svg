@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="Alexey neon banner">
   <defs>
-    <!-- Neon gradients -->
     <linearGradient id="g-neon" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#00e5ff"/>
       <stop offset="0.5" stop-color="#2f6bff"/>
@@ -13,7 +12,6 @@
       <stop offset="1" stop-color="#00e5ff" stop-opacity="0"/>
     </linearGradient>
 
-    <!-- Soft glow -->
     <filter id="f-glow" x="-40%" y="-60%" width="180%" height="220%">
       <feGaussianBlur stdDeviation="6" result="b"/>
       <feColorMatrix in="b" type="matrix"
@@ -27,7 +25,6 @@
       </feMerge>
     </filter>
 
-    <!-- Subtle background noise -->
     <filter id="f-noise">
       <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch" />
       <feColorMatrix type="matrix"
@@ -37,7 +34,6 @@
                 0 0 0 .06 0"/>
     </filter>
 
-    <!-- Typewriter reveal mask -->
     <mask id="m-type">
       <rect x="90" y="170" width="0" height="70" fill="#fff" class="typeMask"/>
     </mask>
@@ -47,6 +43,7 @@
 
       .bg { fill: #050713; }
       .grid line { stroke: #0b1b3a; stroke-width: 1; opacity: .6; }
+
       .frame {
         fill: none;
         stroke: url(#g-neon);
@@ -103,13 +100,9 @@
         animation: blink 1s steps(1,end) infinite;
       }
 
-      .flicker {
-        animation: flicker 4.5s infinite;
-      }
+      .flicker { animation: flicker 4.5s infinite; }
 
-      .typeMask {
-        animation: type 2.6s steps(36,end) 0.35s forwards;
-      }
+      .typeMask { animation: type 2.6s steps(36,end) 0.35s forwards; }
 
       @keyframes scan {
         0%   { transform: translateY(-160px); opacity: 0; }
@@ -146,12 +139,9 @@
     </style>
   </defs>
 
-  <!-- Background -->
   <rect class="bg" x="0" y="0" width="1200" height="360" rx="22"/>
 
-  <!-- Grid -->
   <g class="grid">
-    <!-- vertical -->
     <g>
       <line x1="80"  y1="40" x2="80"  y2="320"/>
       <line x1="160" y1="40" x2="160" y2="320"/>
@@ -168,7 +158,6 @@
       <line x1="1040" y1="40" x2="1040" y2="320"/>
       <line x1="1120" y1="40" x2="1120" y2="320"/>
     </g>
-    <!-- horizontal -->
     <g>
       <line x1="60" y1="80"  x2="1140" y2="80"/>
       <line x1="60" y1="140" x2="1140" y2="140"/>
@@ -178,50 +167,35 @@
     </g>
   </g>
 
-  <!-- Noise -->
   <rect x="0" y="0" width="1200" height="360" rx="22" filter="url(#f-noise)"/>
 
-  <!-- Neon frame -->
   <rect x="26" y="24" width="1148" height="312" rx="18" class="frameGlow"/>
   <rect x="26" y="24" width="1148" height="312" rx="18" class="frame"/>
 
-  <!-- Animated scanline -->
   <rect x="26" y="24" width="1148" height="140" rx="18" class="scan"/>
 
-  <!-- Decorative neon line -->
   <path d="M80 120 C 240 70, 420 190, 610 120 S 980 70, 1120 120" class="neonLine" opacity=".95"/>
 
-  <!-- Text -->
   <g class="flicker">
     <text x="90" y="120" class="title">Алексей</text>
     <text x="320" y="120" class="title" fill="url(#g-neon)">Frontend Developer</text>
     <text x="90" y="155" class="subtitle">React • Dart • Node.js • UI/UX • Animations</text>
   </g>
 
-  <!-- Typewriter quote (revealed by mask) -->
   <g mask="url(#m-type)">
     <text x="90" y="210" class="quote">“Код — это искусство, а разработка — это магия.”</text>
   </g>
 
-  <!-- Blinking cursor after the quote line -->
   <rect x="1080" y="193" width="10" height="24" rx="2" class="cursor"/>
 
-  <!-- Small “status” chips (moved down) -->
-    <!-- Small “status” chips (fixed spacing) -->
+  <!-- Small “status” chips (fixed spacing) -->
   <g>
-    <!-- chip 1 -->
     <rect x="90" y="270" width="260" height="34" rx="17"
           fill="#071a3a" stroke="#00e5ff" stroke-opacity=".35"/>
-    <text x="110" y="293" class="quote" font-size="14" fill="#bfe9ff">
-      available for projects
-    </text>
+    <text x="110" y="293" class="quote" font-size="14" fill="#bfe9ff">available for projects</text>
 
-    <!-- chip 2 -->
     <rect x="370" y="270" width="210" height="34" rx="17"
           fill="#071a3a" stroke="#2f6bff" stroke-opacity=".35"/>
-    <text x="392" y="293" class="quote" font-size="14" fill="#cfe2ff">
-      building cool UI
-    </text>
+    <text x="392" y="293" class="quote" font-size="14" fill="#cfe2ff">building cool UI</text>
   </g>
->
 </svg>
